@@ -1,12 +1,12 @@
 <script lang="ts">
 	import CodeMirror from 'svelte-codemirror-editor';
-	import type { Theme, Language } from './index';
+	import type { Language } from './index';
+	import { theme } from '$lib/stores/theme';
 
 	export let value: string = '';
 
-	export let theme: Theme;
 
 	export let language: Language;
 </script>
 
-<CodeMirror bind:value lang={language.extension} theme={theme.extension} />
+<CodeMirror bind:value lang={language.extension} theme={$theme?.extension}/>
