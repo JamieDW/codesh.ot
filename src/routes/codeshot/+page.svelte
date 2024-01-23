@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Minus, Square, X } from 'lucide-svelte';
+	import * as Drawer from "$lib/components/ui/drawer";
 	import { toPng } from 'html-to-image';
+	import { Button } from '$lib/components/ui/button';
 
 	let code: HTMLDivElement | undefined = undefined;
 
@@ -18,7 +20,7 @@
 </script>
 
 <svelte:head>
-	<title>Codeshot</title>
+	<title>Codesh.ot</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 
@@ -31,6 +33,21 @@
 	</div>
 
 </div>
+
+
+<Drawer.Root>
+	<Drawer.Trigger>Open123</Drawer.Trigger>
+	<Drawer.Content>
+		<Drawer.Header>
+			<Drawer.Title>Are you sure absolutely sure?</Drawer.Title>
+			<Drawer.Description>This action cannot be undone.</Drawer.Description>
+		</Drawer.Header>
+		<Drawer.Footer>
+			<Button>Submit</Button>
+			<Drawer.Close>Cancel</Drawer.Close>
+		</Drawer.Footer>
+	</Drawer.Content>
+</Drawer.Root>
 
 <button on:click={save}>Save</button>
 
