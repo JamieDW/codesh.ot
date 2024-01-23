@@ -1,22 +1,12 @@
 <script lang="ts">
 	import { Minus, Square, X } from 'lucide-svelte';
-	import * as Drawer from "$lib/components/ui/drawer";
-	import { toPng } from 'html-to-image';
-	import { Button } from '$lib/components/ui/button';
+	import { Editor, themes, languages, type Theme, type Language } from '$lib/components/editor';
 
-	let code: HTMLDivElement | undefined = undefined;
+	let value: string = '';
 
-	function save(){
-		toPng(code)
-			.then(function (dataUrl) {
-				var img = new Image();
-				img.src = dataUrl;
-				document.body.appendChild(img);
-			})
-			.catch(function (error) {
-				console.error('oops, something went wrong!', error);
-			});
-	}
+	let theme: Theme = themes[0];
+
+	let language: Language = languages[0];
 </script>
 
 <svelte:head>
@@ -24,30 +14,31 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-
-<div bind:this={code} class="flex h-96 w-full rounded-3xl bg-zinc-900">
+<div
+	style:background-color={theme.background}
+	class="flex h-96 w-full flex-col rounded-3xl drop-shadow-xl"
+>
 	<div class="flex h-10 w-full items-center justify-end gap-4 p-4 text-white *:size-4">
 		<Minus />
 		<Square />
 		<X />
 	</div>
 
+	<Editor bind:value={language.template} bind:theme bind:language />
+
+	<select bind:value={theme}>
+		{#each themes as theme}
+			<option value={theme}>
+				{theme.name}
+			</option>
+		{/each}
+	</select>
+
+	<select bind:value={language}>
+		{#each languages as language}
+			<option value={language}>
+				{language.name}
+			</option>
+		{/each}
+	</select>
 </div>
-
-
-<Drawer.Root>
-	<Drawer.Trigger>Open123</Drawer.Trigger>
-	<Drawer.Content>
-		<Drawer.Header>
-			<Drawer.Title>Are you sure absolutely sure?</Drawer.Title>
-			<Drawer.Description>This action cannot be undone.</Drawer.Description>
-		</Drawer.Header>
-		<Drawer.Footer>
-			<Button>Submit</Button>
-			<Drawer.Close>Cancel</Drawer.Close>
-		</Drawer.Footer>
-	</Drawer.Content>
-</Drawer.Root>
-
-<button on:click={save}>Save</button>
-

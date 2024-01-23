@@ -6,7 +6,7 @@
 <div class="flex min-h-screen flex-col bg-gradient-to-r from-sky-400 to-blue-500">
 	<Header />
 
-	<main class="mx-auto my-0 box-border flex w-full max-w-screen-lg flex-1 flex-col p-4">
+	<main class="mx-auto grid w-full max-w-screen-lg flex-1 flex-col place-items-center p-4">
 		<slot />
 	</main>
 
