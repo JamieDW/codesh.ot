@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { cubicOut } from 'svelte/easing';
 import type { TransitionConfig } from 'svelte/transition';
+import { browser } from '$app/environment';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -54,3 +55,27 @@ export const flyAndScale = (
 		easing: cubicOut
 	};
 };
+
+export const isApple = (): boolean => browser && ((/iPad|iPhone|iPod/.test(window.navigator.userAgent)) ||
+			(/Mac|Mac OS|MacIntel/gi.test(window.navigator.userAgent)) ||
+				(/Macintosh|Mac|Mac OS|MacIntel|MacPPC|Mac68K/gi.test(window.navigator.userAgent)));
+
+export const shade = (hexColor: string, magnitude: number): string => {
+	hexColor = hexColor.replace(`#`, ``);
+	if (hexColor.length === 6) {
+		const decimalColor: number = parseInt(hexColor, 16);
+		let r: number = (decimalColor >> 16) + magnitude;
+		r > 255 && (r = 255);
+		r < 0 && (r = 0);
+		let g: number = (decimalColor & 0x0000ff) + magnitude;
+		g > 255 && (g = 255);
+		g < 0 && (g = 0);
+		let b: number = ((decimalColor >> 8) & 0x00ff) + magnitude;
+		b > 255 && (b = 255);
+		b < 0 && (b = 0);
+		return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
+	} else {
+		return hexColor;
+	}
+};
+

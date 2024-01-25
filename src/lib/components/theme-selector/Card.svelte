@@ -8,6 +8,6 @@
 
 <div>
 	<p>{theme.name}</p>
-	<div style:background-color={theme.background} class="rounded-3xl aspect-video h-40 {selected && 'outline outline-2 outline-offset-2'}">
+	<div style:background-color={theme.background} class="rounded-3xl aspect-video h-36 {selected && 'outline outline-2 outline-offset-2'}">
 	</div>
 </div>
