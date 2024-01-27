@@ -13,7 +13,8 @@ export const languages: Language[] = [
 	{
 		extension: javascript(),
 		name: 'Javascript',
-		template:  '' +
+		template:
+			'' +
 			'document.addEventListener("DOMContentLoaded", () => {\n' +
 			'  console.log("Hello World!");\n' +
 			'});'
@@ -21,7 +22,8 @@ export const languages: Language[] = [
 	{
 		extension: php(),
 		name: 'PHP',
-		template:  '' +
+		template:
+			'' +
 			'document.addEventListener("DOMContentLoaded", () => {\n' +
 			'  console.log("Hello World!");\n' +
 			'});'
@@ -29,7 +31,8 @@ export const languages: Language[] = [
 	{
 		extension: html(),
 		name: 'HTML',
-		template:  '' +
+		template:
+			'' +
 			'document.addEventListener("DOMContentLoaded", () => {\n' +
 			'  console.log("Hello World!");\n' +
 			'});'

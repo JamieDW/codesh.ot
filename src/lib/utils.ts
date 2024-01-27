@@ -56,9 +56,11 @@ export const flyAndScale = (
 	};
 };
 
-export const isApple = (): boolean => browser && ((/iPad|iPhone|iPod/.test(window.navigator.userAgent)) ||
-			(/Mac|Mac OS|MacIntel/gi.test(window.navigator.userAgent)) ||
-				(/Macintosh|Mac|Mac OS|MacIntel|MacPPC|Mac68K/gi.test(window.navigator.userAgent)));
+export const isApple = (): boolean =>
+	browser &&
+	(/iPad|iPhone|iPod/.test(window.navigator.userAgent) ||
+		/Mac|Mac OS|MacIntel/gi.test(window.navigator.userAgent) ||
+		/Macintosh|Mac|Mac OS|MacIntel|MacPPC|Mac68K/gi.test(window.navigator.userAgent));
 
 export const shade = (hexColor: string, magnitude: number): string => {
 	hexColor = hexColor.replace(`#`, ``);
@@ -78,4 +80,3 @@ export const shade = (hexColor: string, magnitude: number): string => {
 		return hexColor;
 	}
 };
-

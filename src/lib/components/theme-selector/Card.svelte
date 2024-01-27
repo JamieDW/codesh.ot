@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import type { Theme } from '$lib/components/editor';
 
 	export let theme: Theme;
@@ -8,6 +7,8 @@
 
 <div>
 	<p>{theme.name}</p>
-	<div style:background-color={theme.background} class="rounded-3xl aspect-video h-36 {selected && 'outline outline-2 outline-offset-2'}">
-	</div>
+	<div
+		style:background-color={theme.background}
+		class="aspect-video h-36 rounded-3xl {selected && 'outline outline-2 outline-offset-2'}"
+	></div>
 </div>

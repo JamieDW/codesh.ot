@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { RadioGroup as RadioGroupPrimitive } from "bits-ui";
-
+	import { RadioGroup as RadioGroupPrimitive } from 'bits-ui';
 
 	type $$Props = RadioGroupPrimitive.Props;
 
-	let className: $$Props["class"] = undefined;
-	export let value: $$Props["value"] = undefined;
+	let className: $$Props['class'] = undefined;
+	export let value: $$Props['value'] = undefined;
 	export { className as class };
 </script>
 
