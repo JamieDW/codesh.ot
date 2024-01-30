@@ -9,7 +9,8 @@ export const preferences = persisted('preferences', {
 	theme: 'One Dark',
 	style: isApple(),
 	gradient: 'Solid Blue',
-	direction: 'To Top'
+	direction: 'To Top',
+	fontSize: 16,
 });
 
 export const theme = derived(preferences, ($preferences) =>

@@ -9,4 +9,10 @@
 	export let language: Language;
 </script>
 
-<CodeMirror bind:value lang={language.extension} theme={$theme.extension} />
+<div style:font-size={"16px"}>
+	<CodeMirror bind:value lang={language.extension} theme={$theme.extension} />
+</div>
+
+<!--width: "500px",-->
+<!--maxWidth: "100%",-->
+<!--height: "50rem",-->
